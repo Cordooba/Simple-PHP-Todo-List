@@ -4,12 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Mi lista de tareas</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+	<style>
+		.deletetask {
+			text-align: right;
+		}
+		.deletetaskbutton {
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6">
-				
 				<h1>Mis Tareas</h1>
 				<table class="table table-striped">
 					<tbody>
@@ -37,9 +45,14 @@
 								}
 							?>
 							<tr <?=$colorTarea?>>
-								<th><?=$dato['tarea']?> - <?=$dato['nivel']?></th>
-								<th><span class="glyphicon glyphicon-ok"></span></th>
-								<th><span class="glyphicon glyphicon-trash"></span></th>
+								<th><?=$dato['tarea']?></th>
+								<!-- <th><span class="glyphicon glyphicon-ok"></span></th> -->
+								<th class="deletetask">
+									<form action="?deletetask" method="post">
+										<input type="hidden" name="idtask" value="<?=$dato['id']?>">
+										<button type="submit" class="btn btn-link btn-sm deletetaskbutton"><i class="glyphicon glyphicon-trash"></i></button>
+									</form>
+								</th>
 							</tr>
 							<?php endforeach; ?>
 						<?php else: ?>
@@ -48,7 +61,7 @@
 						<?php endif; ?>
 					</tbody>
 				</table>
-				<form class="" method="post">
+				<form action="?addtask" method="post">
 					<div class="form-group col-xs-12 col-lg-8">
 					    <input type="text" class="form-control col-lg-8" name="tarea" placeholder="Introducir Tarea">
 					</div>
