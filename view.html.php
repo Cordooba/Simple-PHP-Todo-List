@@ -12,13 +12,53 @@
 			margin: 0px;
 			padding: 0px;
 		}
+		.orderbutton {
+			display: inline-block;
+		}
+		.orderbutton button {
+			margin: 0px;
+			padding: 6px 10px;
+		}
+		.orderbuttons {
+			margin-top: 25px;
+
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6">
-				<h1>Mis Tareas</h1>
+				<div class="row">
+					<div class="col-lg-8">
+						<h1>Mis Tareas</h1>
+					</div>
+					<div class="col-lg-4 orderbuttons">
+						<div class="btn-group" role="group" aria-label="order">
+							<form action="?tareaasc" method="post" class="orderbutton">
+								<button type="submit" class="btn btn-default" title="Orden ascendente">
+									<span class="glyphicon glyphicon-sort-by-alphabet"></span>
+								</button>
+							</form>
+							<form action="?tareadesc" method="post" class="orderbutton" title="Orden descendente">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+								</button>
+							</form>
+							<form action="?nivelasc" method="post" class="orderbutton" title="Nivel ascendente">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-sort-by-order"></span>
+								</button>
+							</form>
+							<form action="?niveldesc" method="post" class="orderbutton" title="Nivel descendente">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-sort-by-order-alt"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				
 				<table class="table table-striped">
 					<tbody>
 						<?php if ( !empty($datos) ): ?>
