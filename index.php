@@ -59,6 +59,46 @@ try{
 	die("No se ha podido extraer información de la base de datos:". $e->getMessage());
 }
 
+if ( isset($_GET['tareaasc']) ) {
+	try{
+		$sql = 'SELECT id, tarea, nivel FROM tareas ORDER BY tarea ASC';
+		$ps = $pdo->prepare($sql);
+		$ps->execute();
+	}catch(PDOException $e) {
+		die("No se ha podido extraer información de la base de datos:". $e->getMessage());
+	}
+}
+
+if ( isset($_GET['tareadesc']) ) {
+	try{
+		$sql = 'SELECT id, tarea, nivel FROM tareas ORDER BY tarea DESC';
+		$ps = $pdo->prepare($sql);
+		$ps->execute();
+	}catch(PDOException $e) {
+		die("No se ha podido extraer información de la base de datos:". $e->getMessage());
+	}
+}
+
+if ( isset($_GET['nivelasc']) ) {
+	try{
+		$sql = 'SELECT id, tarea, nivel FROM tareas ORDER BY nivel ASC';
+		$ps = $pdo->prepare($sql);
+		$ps->execute();
+	}catch(PDOException $e) {
+		die("No se ha podido extraer información de la base de datos:". $e->getMessage());
+	}
+}
+
+if ( isset($_GET['niveldesc']) ) {
+	try{
+		$sql = 'SELECT id, tarea, nivel FROM tareas ORDER BY nivel DESC';
+		$ps = $pdo->prepare($sql);
+		$ps->execute();
+	}catch(PDOException $e) {
+		die("No se ha podido extraer información de la base de datos:". $e->getMessage());
+	}
+}
+
 while ($row = $ps->fetch(PDO::FETCH_ASSOC) ) {
 	$datos[] = $row;
 }

@@ -21,7 +21,6 @@
 		}
 		.orderbuttons {
 			margin-top: 25px;
-
 		}
 	</style>
 </head>
@@ -119,7 +118,6 @@
 						<button type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</form>
-
 			</div>
 			
 			<div class="row">
